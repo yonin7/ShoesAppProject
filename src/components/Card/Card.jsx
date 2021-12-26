@@ -15,7 +15,7 @@ const Card = ({item:{name,price,id,size,imgURL},hendleCallback}) => {
 
     return (
         <div className="cardContainer">
-            {imgURL==''?<div className="cardContainer"> <form>
+            {imgURL===''?<div className="cardContainer"> <form>
               <input  type="text" name='name' placeholder="Name" value={shoes.name}  onChange={handleChange}/>
               <input  type="number" name='price' placeholder="Price" value={shoes.price} onChange={handleChange}/>
               <input  type="number" name='size' placeholder='Size' value={shoes.size} onChange={handleChange}/>
