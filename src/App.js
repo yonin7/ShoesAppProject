@@ -25,6 +25,7 @@ const App = () => {
     setData({ data: apiData });
     console.log(apiData);
   };
+
   const handleUpdate = async (item) => {
     await api.putItem(item);
     const apiData = await api.getItems();
@@ -33,7 +34,7 @@ const App = () => {
   const displayItems = () => {
     return data.map((item, i) => {
       return (
-        <div key={i}>
+        <div key={i} className="displayItemsContainer">
           <Card item={item} hendleCallback={handleUpdate} />
           <button onClick={() => handleDelete(item.id)}>Delete</button>
         </div>
@@ -44,10 +45,13 @@ const App = () => {
   return (
     <div className="App">
       {data.length > 0 && displayItems()}
-      <Card
-        hendleCallback={handleCreate}
-        item={{ name: '', price: '', id: '' }}
-      />
+      <div className="createCardContainer">
+        <h2>Create New Item</h2>
+        <Card
+          hendleCallback={handleCreate}
+          item={{ name: '', price: '', id: '', size: '', imgURL: '' }}
+        />
+      </div>
     </div>
   );
 };
